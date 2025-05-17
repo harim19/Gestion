@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gestionnaire de Budget</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <div class="container">
+    <h1>💰 Gestionnaire de Budget</h1>
+
+    <section>
+      <h2>Revenus</h2>
+      <label>Salaire net : <input type="number" id="salaire" /></label>
+      <label>Autres revenus : <input type="number" id="autresRevenus" /></label>
+    </section>
+
+    <section>
+      <h2>Dépenses fixes</h2>
+      <label>Loyer/Crédit : <input type="number" id="loyer" /></label>
+      <label>Énergie/Internet : <input type="number" id="energie" /></label>
+      <label>Transport : <input type="number" id="transport" /></label>
+      <label>Assurance : <input type="number" id="assurance" /></label>
+    </section>
+
+    <section>
+      <h2>Dépenses variables</h2>
+      <label>Courses alimentaires : <input type="number" id="courses" /></label>
+      <label>Loisirs : <input type="number" id="loisirs" /></label>
+      <label>Shopping : <input type="number" id="shopping" /></label>
+      <label>Restaurants/Sorties : <input type="number" id="sorties" /></label>
+    </section>
+
+    <section>
+      <h2>Objectif d'épargne</h2>
+      <label>Montant souhaité : <input type="number" id="epargne" /></label>
+    </section>
+
+    <button onclick="calculer()">Calculer</button>
+
+    <section id="resultat"></section>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+  // Blocage du clic droit + message
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+            document.body.classList.add('show-message');
+            setTimeout(() => {
+                document.body.classList.remove('show-message');
+            }, 3000);
+        });
+
+        // Blocage des touches F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'F12' || 
+                (e.ctrlKey && e.shiftKey && e.key === 'I') || 
+                (e.ctrlKey && e.shiftKey && e.key === 'J') || 
+                (e.ctrlKey && e.key === 'U')) {
+                e.preventDefault();
+                document.body.classList.add('show-message');
+                setTimeout(() => {
+                    document.body.classList.remove('show-message');
+                }, 3000);
+            }
+        });
+    </script>
+</body>
+</html>
